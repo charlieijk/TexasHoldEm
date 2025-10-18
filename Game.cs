@@ -3,44 +3,47 @@ using System;
 
 public partial class Game : Node
 {
-	private Deck deck;
+	private PokerGameManager gameManager;
+	private UIManager uiManager;
 	
 	public override void _Ready()
 	{
-		GD.Print("=== Texas Hold'em - Testing Deck ===");
+	GD.Print("=== Texas Hold'em Poker ===");
+	
+	// Create poker table background
+	PokerTable table = new PokerTable();
+	AddChild(table);
+	table.ZIndex = -10;
+	
+	// Create UI Manager first
+	uiManager = new UIManager();
+	AddChild(uiManager);
 		
-		// Create and shuffle the deck
-		deck = new Deck();
-		AddChild(deck);
-		deck.InitializeDeck();
-		deck.Shuffle();
+		// Create game manager
+		gameManager = new PokerGameManager();
+		AddChild(gameManager);
 		
-		// Deal 5 cards like a poker hand
-		DealPokerHand();
+		// Connect UI to game manager
+		uiManager.SetGameManager(gameManager);
+		gameManager.SetUIManager(uiManager);
+		
+		// Create Player 1 (You - bottom of screen)
+		Player player1 = new Player();
+		AddChild(player1);
+		player1.Position = new Vector2(576, 550);
+		player1.Initialize("You", 1000, false);
+		gameManager.AddPlayer(player1);
+		
+		// Create Player 2 (AI - top of screen)
+		Player player2 = new Player();
+		AddChild(player2);
+		player2.Position = new Vector2(576, 150);
+		player2.Initialize("AI Opponent", 1000, true);
+		gameManager.AddPlayer(player2);
+		
+		// Setup and start game
+		gameManager.SetupDeck();
+		gameManager.StartGame();
 	}
 	
-	private void DealPokerHand()
-	{
-		float cardSpacing = 150;
-		float startX = 200;
-		float y = 300;
-		
-		GD.Print($"Cards in deck: {deck.CardsRemaining()}");
-		
-		// Deal 5 cards
-		for (int i = 0; i < 5; i++)
-		{
-			Card card = deck.DealCard();
-			
-			if (card != null)
-			{
-				AddChild(card);
-				card.Position = new Vector2(startX + (i * cardSpacing), y);
-				card.Scale = new Vector2(0.5f, 0.5f);
-				card.FlipUp();
-			}
-		}
-		
-		GD.Print($"Cards remaining in deck: {deck.CardsRemaining()}");
-	}
 }
