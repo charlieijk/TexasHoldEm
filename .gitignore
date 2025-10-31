@@ -1,10 +1,63 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+*.import
+*.translation
+
+# C# / .NET
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.dll
+*.exe
+*.cache
+*.log
+
+# Mono/C# specific
+mono_crash.*
+.mono/
+data_*/
 
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
 
 # Editor backup files
 *~
 *.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.vs/
+
+# Build artifacts
+build/
+dist/
+*.log
