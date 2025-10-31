@@ -33,11 +33,11 @@ public partial class PokerGameManager : Node
 	
 	private UIManager uiManager;
 	
-	private Vector2 flopPosition1 = new Vector2(400, 300);
-	private Vector2 flopPosition2 = new Vector2(520, 300);
-	private Vector2 flopPosition3 = new Vector2(640, 300);
-	private Vector2 turnPosition = new Vector2(760, 300);
-	private Vector2 riverPosition = new Vector2(880, 300);
+	private Vector2 flopPosition1 = new Vector2(660, 500);
+	private Vector2 flopPosition2 = new Vector2(860, 500);
+	private Vector2 flopPosition3 = new Vector2(1060, 500);
+	private Vector2 turnPosition = new Vector2(1260, 500);
+	private Vector2 riverPosition = new Vector2(1460, 500);
 	
 	// Track if all players have acted this round
 	private int playersActedThisRound = 0;

@@ -30,14 +30,14 @@ public partial class Game : Node
 		// Create Player 1 (You - bottom of screen)
 		Player player1 = new Player();
 		AddChild(player1);
-		player1.Position = new Vector2(576, 550);
+		player1.Position = new Vector2(960, 900);
 		player1.Initialize("You", 1000, false);
 		gameManager.AddPlayer(player1);
-		
+
 		// Create Player 2 (AI - top of screen)
 		Player player2 = new Player();
 		AddChild(player2);
-		player2.Position = new Vector2(576, 150);
+		player2.Position = new Vector2(960, 250);
 		player2.Initialize("AI Opponent", 1000, true);
 		gameManager.AddPlayer(player2);
 		

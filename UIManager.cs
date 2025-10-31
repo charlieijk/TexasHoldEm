@@ -39,8 +39,8 @@ public partial class UIManager : CanvasLayer
 	// Create background panel for buttons - BOTTOM RIGHT
 	Panel buttonPanel = new Panel();
 	AddChild(buttonPanel);
-	buttonPanel.Position = new Vector2(850, 450);  // Higher and more to the right
-	buttonPanel.Size = new Vector2(380, 120);
+	buttonPanel.Position = new Vector2(1400, 850);  // Scaled for 1920x1080
+	buttonPanel.Size = new Vector2(480, 180);
 	
 	// Style the panel
 	var styleBox = new StyleBoxFlat();
@@ -55,77 +55,77 @@ public partial class UIManager : CanvasLayer
 	foldButton = new Button();
 	buttonPanel.AddChild(foldButton);
 	foldButton.Text = "FOLD";
-	foldButton.Position = new Vector2(10, 15);
-	foldButton.Size = new Vector2(85, 45);
+	foldButton.Position = new Vector2(15, 20);
+	foldButton.Size = new Vector2(110, 65);
 	foldButton.Pressed += OnFoldPressed;
-	
+
 	// Check Button
 	checkButton = new Button();
 	buttonPanel.AddChild(checkButton);
 	checkButton.Text = "CHECK";
-	checkButton.Position = new Vector2(105, 15);
-	checkButton.Size = new Vector2(85, 45);
+	checkButton.Position = new Vector2(135, 20);
+	checkButton.Size = new Vector2(110, 65);
 	checkButton.Pressed += OnCheckPressed;
-	
+
 	// Call Button
 	callButton = new Button();
 	buttonPanel.AddChild(callButton);
 	callButton.Text = "CALL";
-	callButton.Position = new Vector2(10, 65);
-	callButton.Size = new Vector2(85, 45);
+	callButton.Position = new Vector2(15, 95);
+	callButton.Size = new Vector2(110, 65);
 	callButton.Pressed += OnCallPressed;
-	
+
 	// Raise Button
 	raiseButton = new Button();
 	buttonPanel.AddChild(raiseButton);
 	raiseButton.Text = "RAISE";
-	raiseButton.Position = new Vector2(105, 65);
-	raiseButton.Size = new Vector2(85, 45);
+	raiseButton.Position = new Vector2(135, 95);
+	raiseButton.Size = new Vector2(110, 65);
 	raiseButton.Pressed += OnRaisePressed;
 	
 	// Rest of your labels stay the same...
 	
-	// Pot Label (move to LEFT of AI cards)
+	// Pot Label (top center-left)
 	potLabel = new Label();
 	AddChild(potLabel);
-	potLabel.Position = new Vector2(250, 20);  // CHANGED: moved left
+	potLabel.Position = new Vector2(420, 35);
 	potLabel.AddThemeColorOverride("font_color", Colors.Yellow);
-	potLabel.AddThemeFontSizeOverride("font_size", 28);
+	potLabel.AddThemeFontSizeOverride("font_size", 42);
 
 	// Current Bet Label (below pot label)
 	currentBetLabel = new Label();
 	AddChild(currentBetLabel);
-	currentBetLabel.Position = new Vector2(250, 55);  // CHANGED: moved left
+	currentBetLabel.Position = new Vector2(420, 90);
 	currentBetLabel.AddThemeColorOverride("font_color", Colors.White);
-	currentBetLabel.AddThemeFontSizeOverride("font_size", 20);
-	
+	currentBetLabel.AddThemeFontSizeOverride("font_size", 32);
+
 	// Player 1 Chips (bottom left)
 	player1ChipsLabel = new Label();
 	AddChild(player1ChipsLabel);
-	player1ChipsLabel.Position = new Vector2(50, 600);
+	player1ChipsLabel.Position = new Vector2(80, 1000);
 	player1ChipsLabel.AddThemeColorOverride("font_color", Colors.LightGreen);
-	player1ChipsLabel.AddThemeFontSizeOverride("font_size", 22);
-	
+	player1ChipsLabel.AddThemeFontSizeOverride("font_size", 36);
+
 	// Player 2 Chips (top left)
 	player2ChipsLabel = new Label();
 	AddChild(player2ChipsLabel);
-	player2ChipsLabel.Position = new Vector2(50, 50);
+	player2ChipsLabel.Position = new Vector2(80, 80);
 	player2ChipsLabel.AddThemeColorOverride("font_color", Colors.LightGreen);
-	player2ChipsLabel.AddThemeFontSizeOverride("font_size", 22);
-	
+	player2ChipsLabel.AddThemeFontSizeOverride("font_size", 36);
+
 	// Game State Label
 	gameStateLabel = new Label();
 	AddChild(gameStateLabel);
-	gameStateLabel.Position = new Vector2(50, 350);
+	gameStateLabel.Position = new Vector2(80, 540);
 	gameStateLabel.AddThemeColorOverride("font_color", Colors.Cyan);
-	gameStateLabel.AddThemeFontSizeOverride("font_size", 18);
-	
+	gameStateLabel.AddThemeFontSizeOverride("font_size", 28);
+
 	// Action Message Label (center)
 	actionMessageLabel = new Label();
 	AddChild(actionMessageLabel);
-	actionMessageLabel.Position = new Vector2(450, 450);
+	actionMessageLabel.Position = new Vector2(750, 700);
 	actionMessageLabel.AddThemeColorOverride("font_color", Colors.White);
-	actionMessageLabel.AddThemeFontSizeOverride("font_size", 24);
+	actionMessageLabel.AddThemeFontSizeOverride("font_size", 38);
 	
 	// Initially disable all buttons
 	DisableAllButtons();
