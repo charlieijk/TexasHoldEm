@@ -2,6 +2,17 @@
 
 A Texas Hold'em poker game built with Godot 4.5 and C#/.NET 8.0, optimized for fullscreen 1920x1080 gameplay.
 
+## Installation (Quick)
+
+**Want to play right now?**
+
+1. Download [Godot 4.5 .NET](https://godotengine.org/download/) and [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+2. Clone this repo: `git clone https://github.com/charlieijk/TexasHoldEm.git`
+3. Open Godot → Import → Select `project.godot` from the TexasHoldEm folder
+4. Click Build, then press F5 to play!
+
+See [Quick Start](#quick-start) below for detailed instructions.
+
 ## Features
 
 - Full Texas Hold'em poker gameplay with betting rounds (Pre-flop, Flop, Turn, River)
@@ -34,7 +45,29 @@ Make sure to download **Godot 4.5 .NET** version (not the standard version), whi
 
 ## Quick Start
 
-### Option 1: Using Godot Editor (Recommended)
+### Option 1: Download and Play (For Players)
+
+1. **Download the Game**
+   ```bash
+   # Clone the repository
+   git clone https://github.com/charlieijk/TexasHoldEm.git
+   cd TexasHoldEm
+   ```
+
+2. **Install Godot**
+   - Download [Godot 4.5 .NET](https://godotengine.org/download/) (required for C# support)
+   - Install [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+
+3. **Run the Game**
+   - Launch Godot 4.5 (.NET version)
+   - Click **"Import"**
+   - Browse to the TexasHoldEm folder and select `project.godot`
+   - Click **"Import & Edit"**
+   - Click the **"Build"** button (top-right corner)
+   - Press **F5** or click the **Play ▶** button
+   - Enjoy fullscreen poker!
+
+### Option 2: Using Godot Editor (For Development)
 
 1. **Install Prerequisites**
    ```bash
@@ -46,7 +79,7 @@ Make sure to download **Godot 4.5 .NET** version (not the standard version), whi
 2. **Open Project**
    - Launch Godot 4.5 (.NET version)
    - Click "Import"
-   - Navigate to this project folder
+   - Navigate to the project folder
    - Select `project.godot`
    - Click "Import & Edit"
 
@@ -55,11 +88,14 @@ Make sure to download **Godot 4.5 .NET** version (not the standard version), whi
    - Press F5 or click the "Play" button to run the game
    - Game will launch in **fullscreen mode**
 
-### Option 2: Command Line Build
+### Option 3: Command Line Build
 
 1. **Build the project**
    ```bash
-   # From project directory - use the build script
+   # Navigate to project directory
+   cd /path/to/TexasHoldEm
+
+   # Use the build script
    ./build.sh          # macOS/Linux
    build.bat           # Windows
 
@@ -69,8 +105,11 @@ Make sure to download **Godot 4.5 .NET** version (not the standard version), whi
 
 2. **Run with Godot**
    ```bash
-   # Make sure godot is in your PATH, or use full path to Godot executable
+   # Run from project directory
    godot --path . res://node_3d.tscn
+
+   # Or use full path to Godot
+   /Applications/Godot.app/Contents/MacOS/Godot --path . res://node_3d.tscn  # macOS
    ```
 
 ## Display Settings
