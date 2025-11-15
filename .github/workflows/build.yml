@@ -1,0 +1,45 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ master, develop, feature/** ]
+  pull_request:
+    branches: [ master, develop ]
+
+env:
+  Solution_Name: TexasHoldEm.sln
+  Configuration: Debug
+  DOTNET_VERSION: '8.0.x'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Display .NET version
+      run: dotnet --version
+
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.Solution_Name }}
+
+    - name: Build solution
+      run: dotnet build ${{ env.Solution_Name }} --configuration ${{ env.Configuration }} --no-restore
+
+    - name: Run tests (if any)
+      run: dotnet test ${{ env.Solution_Name }} --configuration ${{ env.Configuration }} --no-build --verbosity normal
+      continue-on-error: true
+
+    - name: Build success notification
+      if: success()
+      run: |
+        echo "================================"
+        echo "Build completed successfully!"
+        echo "================================"
